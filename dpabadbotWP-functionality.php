@@ -3,7 +3,7 @@
  * Plugin Name: dpaBadBotWP
  * Plugin URI: https://www.dpabadbot.com/dpabadbotwp-wordpress-plugin-for-dpabadbot.php
  * Description: dpaBadtBotWP is a plugin to be used with dpaBadBot Shield php program. dpaBatBot can lock WordPress so that no one can login - stops hackers from logging in and can track who are your visitors. By tracking visitors it blocks hackers, spiders, crawlers, scrappers, all of whom overload your server and hack your site. You can manually block by IP address and by spider name. The dpaBadBotWP plugin sends dpaBadBot your IP address automatically, so that you will not be blocked. 
- * Version: 01.01
+ * Version: 1.02
  * Author: Dr. Peter Achutha
  * Author URI: https://www.facebook.com/peter.achutha
  * License: 

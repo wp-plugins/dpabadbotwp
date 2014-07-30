@@ -188,12 +188,28 @@ foreach( $spmy_dpabadbot_ip_addrs as $mykey => $myvalue){
 }
 
 } else {
-
 echo '<br>Check your dpaBadBot directory exists. It should be http://www.mydomain.com/dpabadbot/ or something similar but ending with "/dpabadbot/". Please refer to dpaBadBot menu option <span style="color:brown;">Setup > Setup WordPress Security or WordPress Upgrade</span>';
-
-
 }
 
-echo '<br><br>You can purchase a copy of dpaBadBot at <a href="https://www.dpabadbot.com/index.php">https://www.dpabadbot.com</a>' ;
-echo '<br><br><a href="https://www.dpabadbot.com/index.php">Block hackers, scanner, bad bots, spiders, crawlers ...</a>  <a href="https://www.dpadownloads.com/index.php">Other products ...</a>' ;
 ?>
+
+<br><br><br>
+<?php
+$spmy_plugins_url = plugins_url().'/dpabadbotWP';
+?>
+<h3>Other Products by Software Propulsion</h3>
+<table>
+<tr><td><a target="_blank" href="http://www.dpacu.com">Stops Spam Contact Us Form</a></td><td><a target="_blank" href="http://www.dpacu.com"><img src="<?php echo $spmy_plugins_url.'/ContactUsFormh30.png'; ?>"></a></td></tr>
+<tr><td><a target="_blank" href="https://www.dpabadbot.com">Block Hackers at your WordPress website</a></td><td><a target="_blank" href="https://www.dpabadbot.com"><img src="<?php echo $spmy_plugins_url.'/BlockBadBoth30.png'; ?>"></a></td></tr>
+<tr><td><a target="_blank" href="http://www.dpaxfc.com">PHP Caching Software</a></td><td><a target="_blank" href="http://www.dpaxfc.com"><img src="<?php echo $spmy_plugins_url.'/XFCPHPCacheh30.png'; ?>"></a></td></tr>
+<tr><td><a target="_blank" href="http://www.dpaic.com">Image Compression</a></td><td><a target="_blank" href="http://www.dpaic.com"><img src="<?php echo $spmy_plugins_url.'/ImageCompressionh30.png'; ?>"></a></td></tr>
+</table>
+
+
+
+
+
+
+
+
+

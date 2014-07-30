@@ -4,7 +4,7 @@ Tags: bot, hack, security
 Requires at least: 3.9.1
 Tested up to: 3.9.1
 License URI: https://www.dpabadbot.com
-Stable tag: 1.01
+Stable tag: 1.02
 
 
 dpaBadBotWP automatically tells dpaBadBot your current IP address and you will not be blocked from working on your WP site.
@@ -24,5 +24,8 @@ dpaBadBot is a php program that was developed to block hacker attacks on WordPre
 
 == Changelog ==
 
-== 1.1.0 ==
+== 1.01 ==
 Previous version forgot to check ip address when logged into WordPress control panel. This version corrects that. The moment you are logged in, your current IP address is sent to dpaBadBot.
+
+== 1.02 ==
+Added a better description of products offered by Software Propulsion with links to respective websites
