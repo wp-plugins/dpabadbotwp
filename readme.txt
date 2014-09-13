@@ -56,7 +56,7 @@ Changed all file names to lower case so that they will be compatible with all se
 
 
 
-== == Upgrade Notice == ==
+== Upgrade Notice ==
 
 == 1.01 ==
 Previous version forgot to check ip address when logged into WordPress control panel. This version corrects that. The moment you are logged in, your current IP address is sent to dpaBadBot.
