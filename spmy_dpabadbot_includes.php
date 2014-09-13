@@ -32,7 +32,7 @@ function spmy_dpabadbot_actions() {
  
 //$spmy_dpabadbot_ip = spmy_dpabadbot_get_client_ip();
 
-add_options_page("dpaBadBot", "DpaBadBotMenu", 'administrator', "dpaBadBot_Menu", "spmy_dpabadbot_addform"); 
+add_options_page("dpaBadBotWP", "DpaBadBotWPMenu", 'administrator', "dpaBadBotWP_Menu", "spmy_dpabadbot_addform"); 
 
 }
  

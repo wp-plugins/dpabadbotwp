@@ -62,7 +62,7 @@ $t[ $tsz - 1] = $t[ $tsz - 1].'/';
 }
 $installbase = implode( '/', $t );
 
-$spmy_dpabadbot_setup_file = $installbase.'wp-content/plugins/dpabadbotWP/setup.txt';
+$spmy_dpabadbot_setup_file = $installbase.'wp-content/plugins/dpabadbotwp/setup.txt';
 $spmy_dpabadbot_setup_tmp = spmy_dpabadbot_read_file( $spmy_dpabadbot_setup_file );
 $spmy_dpabadbot_setup_data = unserialize( $spmy_dpabadbot_setup_tmp );
 $spmy_dpabadbot_setup_sz = count( $spmy_dpabadbot_setup_data );
@@ -111,10 +111,12 @@ $spmy_dpabadbot_maxlen = $spmy_dpabadbot_maxlen + 5;
 <div class="wrap">
 <?php
 $spmy_dpabadbot_ip = spmy_dpabadbot_get_client_ip();
-echo '<br><span style="color:red;font-size:32px;font-style:normal;">Welcome to dpaBadBot Setup</span>';
-echo '<p><span style="color:blue;font-size:18px;font-style:normal;">This plugin sets up the data file that holds your current IP address so that you will not be blocked from accessing your site. Whenever you are logged into WordPress, your current IP address is recorded so that dpaBadBot does not block your access to your site. If your IP address does not change each time you access the internet you can set your IP address to be permanently allowed access from dpaBadBot program.  </span></p>
-<p><span style="color:darkblue;font-size:18px;font-style:normal;">If your not sure where dpaBadBot is located please run dpaBadBot and look at menu option <span style="color:brown;">Setup > Setup WordPress Security or WordPress Upgrade</span> for the directory pathname of dpaBadBot.</span></p>  ';
-echo '<p><span style="color:blue;font-size:18px;font-style:normal;">Do Remember to go to dpaBadBot and Unlock WordPress and Stop Tracking Visitors before you upgrade WordPress. Upgrade WordPress then go to dpBadBot menu <span style="color:brown;">Setup > Setup WordPress Security or WordPress Upgrade</span> and save the new setup. Its just telling dpaBadBot that the login and index files were upgraded and need to be taken into account. </span></p>
+echo '<br><span style="color:red;font-size:32px;font-style:normal;">Welcome to dpaBadBot<b>WP</b> Setup</span>';
+echo '<p><span style="color:blue;font-size:16px;font-style:normal;">dpaBadBot is a php program that was developed to block hacker attacks on WordPress, Joomla, ... and other websites. Please visit our website at <a target="_blank" href="https://www.dpabadbot.com">https://www.dpabadbot.com</a> for more details on dpaBadBot that blocks hackers, stops brute force login attempts and defends against ddos attacks.</p>
+<p><span style="color:blue;font-size:16px;font-style:normal;">This plugin, dpaBadBot<b>WP</b>, sets up the data file that holds your current IP address so that you will not be blocked from accessing your site. Whenever you are logged into WordPress, your current IP address is recorded so that dpaBadBot does not block your access to your site. If your IP address does not change each time you access the internet you can set, in dpaBadBot program, your IP address to be permanently allowed access.
+<p><span style="color:blue;font-size:16px;font-style:normal;">By its self this plugin will not be useful if you had not purchased <a target="_blank" href="https://www.dpabadbot.com">dpaBadBot</a> or downloaded the <a href="https://www.dpabadbot.com/30daydlCU.php?pdtno=5" target="_blank">30 Day Trial version</a>.  </span></p>
+<p><span style="color:darkblue;font-size:16px;font-style:normal;">If your not sure where dpaBadBot is located please run dpaBadBot and look at menu option <span style="color:brown;">Setup > Setup Blog Security or Blog Upgrade</span> for the directory pathname of dpaBadBot.</span></p>  ';
+echo '<p><span style="color:blue;font-size:16px;font-style:normal;">Do Remember to go to dpaBadBot and Unlock WordPress and Stop Tracking Visitors before you upgrade WordPress. Upgrade WordPress then go to dpBadBot menu <span style="color:brown;">Setup > Setup Blog Security or Blog Upgrade</span> and save the new setup. Its just telling dpaBadBot that the login and index files were upgraded and need to be taken into account. </span></p>
 ';
 ?>
 <br><br><br>
@@ -195,14 +197,15 @@ echo '<br>Check your dpaBadBot directory exists. It should be http://www.mydomai
 
 <br><br><br>
 <?php
-$spmy_plugins_url = plugins_url().'/dpabadbotWP';
+$spmy_plugins_url = plugins_url().'/dpabadbotwp';
 ?>
 <h3>Other Products by Software Propulsion</h3>
-<table>
-<tr><td><a target="_blank" href="http://www.dpacu.com">Stops Spam Contact Us Form</a></td><td><a target="_blank" href="http://www.dpacu.com"><img src="<?php echo $spmy_plugins_url.'/ContactUsFormh30.png'; ?>"></a></td></tr>
-<tr><td><a target="_blank" href="https://www.dpabadbot.com">Block Hackers at your WordPress website</a></td><td><a target="_blank" href="https://www.dpabadbot.com"><img src="<?php echo $spmy_plugins_url.'/BlockBadBoth30.png'; ?>"></a></td></tr>
-<tr><td><a target="_blank" href="http://www.dpaxfc.com">PHP Caching Software</a></td><td><a target="_blank" href="http://www.dpaxfc.com"><img src="<?php echo $spmy_plugins_url.'/XFCPHPCacheh30.png'; ?>"></a></td></tr>
-<tr><td><a target="_blank" href="http://www.dpaic.com">Image Compression</a></td><td><a target="_blank" href="http://www.dpaic.com"><img src="<?php echo $spmy_plugins_url.'/ImageCompressionh30.png'; ?>"></a></td></tr>
+<table width="800">
+<tr><td style="color:blue;font-size:14px;font-style:normal;vertical-align:top;"><span style="color:red;">dpaContactUs</span> - Contact Form that makes life difficult for spammers. Multiple websites can share one email address.</td><td style="vertical-align:top;"><a target="_blank" href="http://www.dpacu.com"><img src="<?php echo $spmy_plugins_url.'/cufh30.png'; ?>" width="402" height="30"></a></td></tr>
+<tr><td style="color:darkblue;font-size:14px;font-style:normal;vertical-align:top;"><span style="color:red;">dpaBadBot</span> - Very effective anti hacking software that blocks hackers, stop brute force login attemtps and defends against ddos attacks to protect your WordPress website</td><td style="vertical-align:top;"><a target="_blank" href="https://www.dpabadbot.com"><img src="<?php echo $spmy_plugins_url.'/bbbh30.png'; ?>" width="402" height="30"></a></td></tr>
+<tr><td style="color:blue;font-size:14px;font-style:normal;vertical-align:top;"><span style="color:red;">xfcPHPCache</span> - Not for WordPress, Joomla or other blogs but for other php websites. PHP Caching Software</td><td style="vertical-align:top;"><a target="_blank" href="http://www.dpaxfc.com"><img src="<?php echo $spmy_plugins_url.'/xfch30.png'; ?>" width="402" height="30"></a></td></tr>
+<tr><td style="color:darkblue;font-size:14px;font-style:normal;vertical-align:top;"><span style="color:red;">dpaImageCompression</span> - Image Compression. Compresses images you have saved on your websites.</td><td style="vertical-align:top;"><a target="_blank" href="http://www.dpaic.com"><img src="<?php echo $spmy_plugins_url.'/ich30.png'; ?>"  width="402" height="30"></a></td></tr>
+<tr><td style="color:blue;font-size:14px;font-style:normal;vertical-align:top;"><span style="color:red;">Web Hosting Services</span> - from budget hosting to high performance sites.</td><td style="vertical-align:top;"><a target="_blank" href="http://www.peterpublishing.com"><img src="<?php echo $spmy_plugins_url.'/webhostingservicesh30.png'; ?>" width="405" height="30"></a></td></tr>
 </table>
 
 

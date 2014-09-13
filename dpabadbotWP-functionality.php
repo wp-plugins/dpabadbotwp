@@ -2,8 +2,8 @@
 /**
  * Plugin Name: dpaBadBotWP
  * Plugin URI: https://www.dpabadbot.com/dpabadbotwp-wordpress-plugin-for-dpabadbot.php
- * Description: dpaBadtBotWP is a plugin to be used with dpaBadBot Shield php program. dpaBatBot can lock WordPress so that no one can login - stops hackers from logging in and can track who are your visitors. By tracking visitors it blocks hackers, spiders, crawlers, scrappers, all of whom overload your server and hack your site. You can manually block by IP address and by spider name. The dpaBadBotWP plugin sends dpaBadBot your IP address automatically, so that you will not be blocked. 
- * Version: 1.02
+ * Description: dpaBadtBotWP is a plugin to be used with dpaBadBot Shield php program. The dpaBadBotWP plugin sends dpaBadBot your IP address automatically, so that you will not be blocked. You need to purchase dpaBadBot separately or download the 30 Day Trial version before using this plugin dpaBadBotWP. dpaBatBot (not the plugin) can lock up WordPress so that no one can login - stops hackers from logging in and can track who are your visitors. By tracking visitors it blocks hackers, spiders, crawlers, scrappers, all of whom overload your server and hack your site. You can manually block by IP address and by spider name.
+ * Version: 1.03
  * Author: Dr. Peter Achutha
  * Author URI: https://www.facebook.com/peter.achutha
  * License: 
@@ -74,7 +74,7 @@ $t[ $tsz - 1] = $t[ $tsz - 1].'/';
 }
 $installbase = implode( '/', $t );
 
-$spmy_dpabadbot_setup_file = $installbase.'wp-content/plugins/dpabadbotWP/setup.txt';
+$spmy_dpabadbot_setup_file = $installbase.'wp-content/plugins/dpabadbotwp/setup.txt';
 $spmy_dpabadbot_setup_tmp = spmy_dpabadbot_read_file( $spmy_dpabadbot_setup_file );
 $spmy_dpabadbot_setup_data = unserialize( $spmy_dpabadbot_setup_tmp );
 $spmy_dpabadbot_setup_sz = count( $spmy_dpabadbot_setup_data );
