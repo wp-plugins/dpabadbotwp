@@ -30,6 +30,17 @@ Note: If you are upgrading and the plugin has problems accessing files, DELETE t
 2. Shows what IP addresses you have been using to access your WordPress site. screenshot-1.png
 
 
+== Frequently Asked Questions ==
+
+= What does this plugin do? =
+
+dpaBadBot is a php program that protects your WordPress website form bad bots, brute force login attempts, hackers and ddos attacks. It does this by monitoring and tracking your website visitors and blocks the ip address of bad bots.
+
+This plugin, dpaBadBotWP, sends your ip address to dpaBadBot php program and does not do anything else. Hence it is not useful if you have not installed dpaBadBot on your website. For more details of dpaBadBot please visit our website at https://www.dpabadbot.com
+
+
+
+
 == Changelog ==
 
 == 1.01 ==
@@ -41,3 +52,20 @@ Added a better description of products offered by Software Propulsion with links
 
 == 1.03 ==
 Changed all file names to lower case so that they will be compatible with all servers. If you are upgrading and the plugin has problems accessing files, DELETE this plugin and reinstall the plugin.
+
+
+
+
+== == Upgrade Notice == ==
+
+== 1.01 ==
+Previous version forgot to check ip address when logged into WordPress control panel. This version corrects that. The moment you are logged in, your current IP address is sent to dpaBadBot.
+
+== 1.02 ==
+Added a better description of products offered by Software Propulsion with links to respective websites
+
+
+== 1.03 ==
+Changed all file names to lower case so that they will be compatible with all servers. If you are upgrading and the plugin has problems accessing files, DELETE this plugin and reinstall the plugin.
+
+
