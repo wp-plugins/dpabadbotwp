@@ -23,7 +23,7 @@ Note: If you are upgrading and the plugin has problems accessing files, DELETE t
 == Installation ==
 1. Upload 'dpabadbotwp.zip' to the '/wp-content/plugins/' directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. Go to 'Settings > dpaBadBotMenu' and edit and save settings.
+3. Go to 'Settings > dpaBadBotWPMenu' and edit and save settings.
 
 == Screenshots ==
 1. Shows that only one field data needs to entered and that is the directory where dpaBadBot is located. screenshot-1.png
