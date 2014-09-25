@@ -4,7 +4,7 @@ Tags: bad bot, hack, security, brute force login, block hackers, ddos attack
 Requires at least: 3.9.1
 Tested up to: 4.0
 License URI: https://www.dpabadbot.com
-Stable tag: 1.03
+Stable tag: 1.04
 
 
 dpaBadBotWP automatically tells dpaBadBot your current IP address and you will not be blocked from working on your WordPress site.
@@ -27,8 +27,8 @@ Note: If you are upgrading and the plugin has problems accessing files, DELETE t
 3. Go to 'Settings > dpaBadBotWPMenu' and edit and save settings.
 
 == Screenshots ==
-1. Shows that only one field data needs to entered and that is the directory where dpaBadBot is located. screenshot-1.png
-2. Shows what IP addresses you have been using to access your WordPress site. screenshot-1.png
+1. Shows that only one field data needs to be entered and that is the directory where dpaBadBot is located. Also shows what IP addresses you have been using to access your WordPress site. screenshot-1.png
+
 
 
 == Frequently Asked Questions ==
@@ -47,7 +47,8 @@ Previous version forgot to check ip address when logged into WordPress control p
 Added a better description of products offered by Software Propulsion with links to respective websites
 == 1.03 ==
 Changed all file names to lower case so that they will be compatible with all servers. If you are upgrading and the plugin has problems accessing files, DELETE this plugin and reinstall the plugin.
-
+== 1.04 ==
+dpaBadBot PHP program was upgraded to allow you to preview your edited posts. So this plugin had extra security feature added to work with these dpaBadBot upgrades. 
 
 
 
@@ -58,5 +59,7 @@ Previous version forgot to check ip address when logged into WordPress control p
 Added a better description of products offered by Software Propulsion with links to respective websites
 == 1.03 ==
 Changed all file names to lower case so that they will be compatible with all servers. If you are upgrading and the plugin has problems accessing files, DELETE this plugin and reinstall the plugin.
+== 1.04 ==
+dpaBadBot PHP program was upgraded to allow you to preview your edited posts. So this plugin had extra security feature added to work with these dpaBadBot upgrades
 
 

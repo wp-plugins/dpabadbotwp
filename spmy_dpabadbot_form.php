@@ -3,66 +3,10 @@ defined('ABSPATH') or die("No script kiddies please!");
 //include 'spmyfunctions.php';
 
 
-//$ppmy_http = $_SERVER['HTTPS'] == 'on' ? 'https' : 'http'; // get the http(s) file path base
-if(!empty($_SERVER["HTTPS"])){
-  if($_SERVER["HTTPS"]!=="off") {
-    $ppmy_http = 'https'; //https
-  } else {
-    $ppmy_http = 'http'; //http
-	}
-} else {
-  $ppmy_http = 'http'; //http
-  }
-$ppmy_filename_is =  $ppmy_http .'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-//get rid of the url parameters after ?
-$ppmy_tmpfn = explode( '?', $ppmy_filename_is );
-$ppmy_filesz = count( $ppmy_tmpfn );
-$ppmy_filename_is = $ppmy_tmpfn[0] ;
-//get rid of file name
-$ppmy_tmpfn = explode( '/', $ppmy_filename_is );
-$ppmy_filesz = count( $ppmy_tmpfn );
-$ppmy_tmpfn[$ppmy_filesz - 1] = '';
-$ppmy_filebase = implode( '/', $ppmy_tmpfn );
-$ppmy_filesz = strlen( $ppmy_filebase );
-if( $ppmy_filebase[ $ppmy_filesz - 1] != '/' ){
-$ppmy_filebase = $ppmy_filebase.'/'; 
-}
 
-$installbase = $_SERVER['SCRIPT_FILENAME']; // get the installation directory path
-//get rid of the url parameters after ?
-$ppmy_tmpfn = explode( '?', $installbase );
-$ppmy_filesz = count( $ppmy_tmpfn );
-$installbase = $ppmy_tmpfn[0] ;
-//get rid of file name
-$ppmy_tmpfn = explode( '/', $installbase );
-$ppmy_filesz = count( $ppmy_tmpfn );
-$ppmy_tmpfn[$ppmy_filesz - 1] = '';
-$installbase = implode( '/', $ppmy_tmpfn );
-$ppmy_filesz = strlen( $installbase );
-if( $installbase[ $ppmy_filesz - 1] != '/' ){
-$installbase = $installbase.'/'; 
-}
-$t = explode( '/', $ppmy_filebase );
-$tsz = count( $t );
-unset( $t[ $tsz - 1] );
-unset( $t[ $tsz - 2] );
-$tsz = count( $t );
-if( $t[ $tsz - 1] != '/' ){
-$t[ $tsz - 1] = $t[ $tsz - 1].'/'; 
-}
-$ppmy_filebase = implode( '/', $t );
-
-$t = explode( '/', $installbase );
-$tsz = count( $t );
-unset( $t[ $tsz - 1] );
-unset( $t[ $tsz - 2] );
-$tsz = count( $t );
-if( $t[ $tsz - 1] != '/' ){
-$t[ $tsz - 1] = $t[ $tsz - 1].'/'; 
-}
-$installbase = implode( '/', $t );
-
-$spmy_dpabadbot_setup_file = $installbase.'wp-content/plugins/dpabadbotwp/setup.txt';
+//$spmy_dpabadbot_setup_file = $installbase.'wp-content/plugins/dpabadbotwp/setup.txt';
+$spmy_dpabadbot_setup_file = dirname(__FILE__) .'/setup.txt';
+$wppathstr = str_replace( 'wp-content/plugins/dpabadbotwp/setup.txt', '', $spmy_dpabadbot_setup_file);
 $spmy_dpabadbot_setup_tmp = spmy_dpabadbot_read_file( $spmy_dpabadbot_setup_file );
 $spmy_dpabadbot_setup_data = unserialize( $spmy_dpabadbot_setup_tmp );
 $spmy_dpabadbot_setup_sz = count( $spmy_dpabadbot_setup_data );
@@ -96,14 +40,14 @@ else {
 
 
 $spmy_dpabadbot_maxlen = 25 ;
-$spmy_dpabadbot_cl = strlen( $installbase ) ;
+$spmy_dpabadbot_cl = strlen( $wppathstr ) ;
 if ( $spmy_dpabadbot_cl > $spmy_dpabadbot_maxlen ){
 $spmy_dpabadbot_maxlen = $spmy_dpabadbot_cl;
 }
-$spmy_dpabadbot_cl = strlen( $ppmy_filebase ) ;
-if ( $spmy_dpabadbot_cl > $spmy_dpabadbot_maxlen ){
-$spmy_dpabadbot_maxlen = $spmy_dpabadbot_cl;
-}
+//$spmy_dpabadbot_cl = strlen( $ppmy_filebase ) ;
+//if ( $spmy_dpabadbot_cl > $spmy_dpabadbot_maxlen ){
+//$spmy_dpabadbot_maxlen = $spmy_dpabadbot_cl;
+//}
 $spmy_dpabadbot_maxlen = $spmy_dpabadbot_maxlen + 5;
 
 
@@ -111,20 +55,18 @@ $spmy_dpabadbot_maxlen = $spmy_dpabadbot_maxlen + 5;
 <div class="wrap">
 <?php
 $spmy_dpabadbot_ip = spmy_dpabadbot_get_client_ip();
-echo '<br><span style="color:red;font-size:32px;font-style:normal;">Welcome to dpaBadBot<b>WP</b> Setup</span>';
-echo '<p><span style="color:blue;font-size:16px;font-style:normal;">dpaBadBot is a php program that was developed to block hacker attacks on WordPress, Joomla, ... and other websites. Please visit our website at <a target="_blank" href="https://www.dpabadbot.com">https://www.dpabadbot.com</a> for more details on dpaBadBot that blocks hackers, stops brute force login attempts and defends against ddos attacks.</p>
-<p><span style="color:blue;font-size:16px;font-style:normal;">This plugin, dpaBadBot<b>WP</b>, sets up the data file that holds your current IP address so that you will not be blocked from accessing your site. Whenever you are logged into WordPress, your current IP address is recorded so that dpaBadBot does not block your access to your site. If your IP address does not change each time you access the internet you can set, in dpaBadBot program, your IP address to be permanently allowed access.
-<p><span style="color:blue;font-size:16px;font-style:normal;">By its self this plugin will not be useful if you had not purchased <a target="_blank" href="https://www.dpabadbot.com">dpaBadBot</a> or downloaded the <a href="https://www.dpabadbot.com/30daydlCU.php?pdtno=5" target="_blank">30 Day Trial version</a>.  </span></p>
-<p><span style="color:darkblue;font-size:16px;font-style:normal;">If your not sure where dpaBadBot is located please run dpaBadBot and look at menu option <span style="color:brown;">Setup > Setup Blog Security or Blog Upgrade</span> for the directory pathname of dpaBadBot.</span></p>  ';
-echo '<p><span style="color:blue;font-size:16px;font-style:normal;">Do Remember to go to dpaBadBot and Unlock WordPress and Stop Tracking Visitors before you upgrade WordPress. Upgrade WordPress then go to dpBadBot menu <span style="color:brown;">Setup > Setup Blog Security or Blog Upgrade</span> and save the new setup. Its just telling dpaBadBot that the login and index files were upgraded and need to be taken into account. </span></p>
-';
+echo '<br><span style="color:red;font-size:24px;font-style:normal;">Welcome to dpaBadBot<b>WP</b> Setup</span>';
+echo '<p><span style="color:blue;font-size:14px;font-style:normal;">dpaBadBot is a php program that was developed to block hacker attacks on WordPress, Joomla, ... and other websites. Please visit our website at <a target="_blank" href="https://www.dpabadbot.com">https://www.dpabadbot.com</a> for more details on dpaBadBot that blocks hackers, stops brute force login attempts and defends against ddos attacks.</p>
+<p><span style="color:blue;font-size:14px;font-style:normal;">This plugin, dpaBadBot<b>WP</b>, sets up the data file that holds your current IP address so that you will not be blocked from accessing your site. Whenever you are logged into WordPress, your current IP address is recorded so that dpaBadBot does not block your access to your site. 
+<p><span style="color:blue;font-size:14px;font-style:normal;">By its self this plugin will not be useful if you had not purchased <a target="_blank" href="https://www.dpabadbot.com">dpaBadBot</a> or downloaded the <a href="https://www.dpabadbot.com/30daydlCU.php?pdtno=5" target="_blank">30 Day Trial version</a>.  </span></p>
+<p><span style="color:darkblue;font-size:14px;font-style:normal;">If you are not sure where dpaBadBot is located please run dpaBadBot and look at menu option <span style="color:brown;">Setup > Setup Blog Security or Blog Upgrade</span> for the directory pathname of dpaBadBot.</span></p>  ';
+
 ?>
-<br><br><br>
-<h2><span style="color:blue;font-size:18px;font-style:normal;">Please confirm the location of Wordpress files & dpaBadBot</span></h2>
+
+<h2><span style="color:blue;font-size:18px;font-style:normal;">Please confirm the location of  dpaBadBot</span></h2>
 <form action="<? echo htmlspecialchars( $PHP_SELF ) ; ?>"  method="post">
 <table>
-<tr><td>Your Website is at: </td><td><input type="text" readonly size="<?php echo $spmy_dpabadbot_maxlen; ?>" name="spmy_dpawebsiteis" value="<?php echo $ppmy_filebase; ?>" ></td></tr>
-<tr><td>Your Website files are at: </td><td><input type="text" readonly size="<?php echo $spmy_dpabadbot_maxlen; ?>" name="spmy_dpawebsiteat" value="<?php echo $installbase; ?>" ></td></tr>
+<tr><td>Your Website is at: </td><td><input type="text" readonly size="<?php echo $spmy_dpabadbot_maxlen; ?>" name="spmy_dpawebsiteis" value="<?php echo $wppathstr; ?>" ></td></tr>
 <tr><td></td><td></td></tr>
 <tr><td>Your dpaBadBot is at: </td><td><input type="text" size="<?php echo $spmy_dpabadbot_maxlen; ?>" name="spmy_dpabadbotsite" value="<?php echo $spmy_dpabadbot_path; ?>" ><?php echo $spmy_dpabadbot_nofile ; ?></td></tr>
 <tr><td></td><td></td></tr>
@@ -133,8 +75,6 @@ echo '<p><span style="color:blue;font-size:16px;font-style:normal;">Do Remember 
 <input type="submit" name="spmy_dpabadbot_setup" value="Submit" >
 </form>
 
-<br><br><br>
-
 </div>
 <?php
 
@@ -142,8 +82,6 @@ echo '<p><span style="color:blue;font-size:16px;font-style:normal;">Do Remember 
 //check dpabadbot files exists
 $spmy_dpabadbot_datadir = $spmy_dpabadbot_path.'data/';
 $spmy_dpabadbot_ip_file = $spmy_dpabadbot_path.'data/wpipadd.txt';
-
-
 
 //delete an existing blocked ip address
 if( $_POST[spmy_dpabadbot_deleteip] == 'Delete Data' ){
@@ -190,12 +128,16 @@ foreach( $spmy_dpabadbot_ip_addrs as $mykey => $myvalue){
 }
 
 } else {
-echo '<br>Check your dpaBadBot directory exists. It should be http://www.mydomain.com/dpabadbot/ or something similar but ending with "/dpabadbot/". Please refer to dpaBadBot menu option <span style="color:brown;">Setup > Setup WordPress Security or WordPress Upgrade</span>';
+echo '<span style="color:red;font-size:22px">Check your dpaBadBot directory exists</span><span style="color:blue;font-size:22px">. It should be http://www.mydomain.com/dpabadbot/ or something similar but ending with "/dpabadbot/". Please refer to dpaBadBot menu option</span> <span style="color:brown;font-size:22px">Setup > Setup Blog Security or Blog Upgrade</span>';
 }
 
+
+echo '<br><p><span style="color:darkblue;font-size:14px;font-style:normal;">If you intend to upgrade WordPress, do Remember to go to dpaBadBot and Unlock WordPress and Stop Tracking Visitors before you upgrade WordPress. Upgrade WordPress then go to dpBadBot menu <span style="color:brown;">Setup > Setup Blog Security or Blog Upgrade</span> and save the new setup. Its just telling dpaBadBot that the login and index files were upgraded and need to be taken into account. </span></p>
+';
 ?>
 
-<br><br><br>
+
+<br><br>
 <?php
 $spmy_plugins_url = plugins_url().'/dpabadbotwp';
 ?>
