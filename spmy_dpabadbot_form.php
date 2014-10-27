@@ -33,21 +33,14 @@ if( isset( $_POST[spmy_dpabadbotsite] ) ) {
 else {
 //echo '<br>No ... No Submit detected';
 }
-} else {
-
-//$spmy_dpabadbot_path = $installbase.'dpabadbot/';
-}
-
+} 
 
 $spmy_dpabadbot_maxlen = 25 ;
 $spmy_dpabadbot_cl = strlen( $wppathstr ) ;
 if ( $spmy_dpabadbot_cl > $spmy_dpabadbot_maxlen ){
 $spmy_dpabadbot_maxlen = $spmy_dpabadbot_cl;
 }
-//$spmy_dpabadbot_cl = strlen( $ppmy_filebase ) ;
-//if ( $spmy_dpabadbot_cl > $spmy_dpabadbot_maxlen ){
-//$spmy_dpabadbot_maxlen = $spmy_dpabadbot_cl;
-//}
+
 $spmy_dpabadbot_maxlen = $spmy_dpabadbot_maxlen + 5;
 
 
@@ -55,7 +48,7 @@ $spmy_dpabadbot_maxlen = $spmy_dpabadbot_maxlen + 5;
 <div class="wrap">
 <?php
 $spmy_dpabadbot_ip = spmy_dpabadbot_get_client_ip();
-echo '<br><span style="color:red;font-size:24px;font-style:normal;">Welcome to dpaBadBot<b>WP</b> Setup</span>';
+echo '<br><span style="color:red;font-size:24px;font-style:normal;">Welcome to dpaBadBot<b>WP</b> Setup (Version 1.06) </span>';
 echo '<p><span style="color:blue;font-size:14px;font-style:normal;">dpaBadBot is a php program that was developed to block hacker attacks on WordPress, Joomla, ... and other websites. Please visit our website at <a target="_blank" href="https://www.dpabadbot.com">https://www.dpabadbot.com</a> for more details on dpaBadBot that blocks hackers, stops brute force login attempts and defends against ddos attacks.</p>
 <p><span style="color:blue;font-size:14px;font-style:normal;">This plugin, dpaBadBot<b>WP</b>, sets up the data file that holds your current IP address so that you will not be blocked from accessing your site. Whenever you are logged into WordPress, your current IP address is recorded so that dpaBadBot does not block your access to your site. 
 <p><span style="color:blue;font-size:14px;font-style:normal;">By its self this plugin will not be useful if you had not purchased <a target="_blank" href="https://www.dpabadbot.com">dpaBadBot</a> or downloaded the <a href="https://www.dpabadbot.com/30daydlCU.php?pdtno=5" target="_blank">30 Day Trial version</a>.  </span></p>
@@ -93,39 +86,20 @@ if( file_exists( $spmy_dpabadbot_ip_file ) ){
 
 
 if( file_exists( $spmy_dpabadbot_datadir ) ){
-//if( file_exists( $spmy_dpabadbot_datadir ) ){
-	if( file_exists( $spmy_dpabadbot_ip_file ) ){ 
-		$spmy_dpabadbot_ip_tmp = spmy_dpabadbot_read_file( $spmy_dpabadbot_ip_file );
-		if( strlen( $spmy_dpabadbot_ip_tmp ) > 2 ){
-			$spmy_dpabadbot_ip_addrs = unserialize( $spmy_dpabadbot_ip_tmp );
-			}
-		}
-//	}
-$spmy_dpabadbot_ip_addrs[$spmy_dpabadbot_ip] = $spmy_dpabadbot_ip;
-spmy_dpabadbot_write_file( $spmy_dpabadbot_ip_file, serialize( $spmy_dpabadbot_ip_addrs) );
+spmy_dpabadbot_write_file( $spmy_dpabadbot_ip_file, serialize( $spmy_dpabadbot_ip) );
 
-$spmy_dpabadbot_ip_sz = count( $spmy_dpabadbot_ip_addrs );
-$spmy_dpabadbot_ip_tmp = serialize( $spmy_dpabadbot_ip_addrs );
-if( $spmy_dpabadbot_ip_sz > 0 && strlen( $spmy_dpabadbot_ip_tmp ) > 2 ){
 ?>
-
 <h2><span style="color:blue;font-size:18px;font-style:normal;">The IP Addresses you have used</span></h2>
 <form action="<? echo htmlspecialchars( $PHP_SELF ) ; ?>"  method="post">
 <table border='1'>
-<th>Item</th>
 <th>IP Address</th>
 <?php
-$spmy_dpabadbot_i=0;
-foreach( $spmy_dpabadbot_ip_addrs as $mykey => $myvalue){
-		$spmy_dpabadbot_i++;
-		echo '<tr><td>'.$spmy_dpabadbot_i.'</td><td>'.$spmy_dpabadbot_ip_addrs[$mykey].'</td></tr>';
-}
+echo '<tr><td>'.$spmy_dpabadbot_ip.'</td></tr>';
 ?>
 </table>
 <input type="submit" name="spmy_dpabadbot_deleteip" value="Delete Data" >
 </form>
 <?php
-}
 
 } else {
 echo '<span style="color:red;font-size:22px">Check your dpaBadBot directory exists</span><span style="color:blue;font-size:22px">. It should be http://www.mydomain.com/dpabadbot/ or something similar but ending with "/dpabadbot/". Please refer to dpaBadBot menu option</span> <span style="color:brown;font-size:22px">Setup > Setup Blog Security or Blog Upgrade</span>';
@@ -149,12 +123,3 @@ $spmy_plugins_url = plugins_url().'/dpabadbotwp';
 <tr><td style="color:darkblue;font-size:14px;font-style:normal;vertical-align:top;"><span style="color:red;">dpaImageCompression</span> - Image Compression. Compresses images you have saved on your websites.</td><td style="vertical-align:top;"><a target="_blank" href="http://www.dpaic.com"><img src="<?php echo $spmy_plugins_url.'/ich30.png'; ?>"  width="402" height="30"></a></td></tr>
 <tr><td style="color:blue;font-size:14px;font-style:normal;vertical-align:top;"><span style="color:red;">Web Hosting Services</span> - from budget hosting to high performance sites.</td><td style="vertical-align:top;"><a target="_blank" href="http://www.peterpublishing.com"><img src="<?php echo $spmy_plugins_url.'/webhostingservicesh30.png'; ?>" width="405" height="30"></a></td></tr>
 </table>
-
-
-
-
-
-
-
-
-

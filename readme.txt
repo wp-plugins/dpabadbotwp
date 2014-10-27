@@ -4,7 +4,7 @@ Tags: bad bot, hack, security, brute force login, block hackers, ddos attack
 Requires at least: 3.9.1
 Tested up to: 4.0
 License URI: https://www.dpabadbot.com
-Stable tag: 1.05
+Stable tag: 1.06
 
 
 dpaBadBotWP automatically tells dpaBadBot your current IP address and you will not be blocked from working on your WordPress site.
@@ -51,6 +51,8 @@ Changed all file names to lower case so that they will be compatible with all se
 dpaBadBot PHP program was upgraded to allow you to preview your edited posts. So this plugin had extra security feature added to work with these dpaBadBot upgrades. 
 == 1.05 ==
 Removed the check for logout as not a good idea. 
+== 1.06 ==
+Changed which ip address is saved. Only latest IP address is saved and all older one's are deleted.
 
 
 == Upgrade Notice ==
@@ -64,4 +66,6 @@ Changed all file names to lower case so that they will be compatible with all se
 dpaBadBot PHP program was upgraded to allow you to preview your edited posts. So this plugin had extra security feature added to work with these dpaBadBot upgrades
 == 1.05 ==
 Removed the check for logout as not a good idea. 
+== 1.06 ==
+Changed which ip address is saved. Only latest IP address is saved and all older one's are deleted.
 
