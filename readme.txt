@@ -53,6 +53,8 @@ dpaBadBot PHP program was upgraded to allow you to preview your edited posts. So
 Removed the check for logout as not a good idea. 
 == 1.06 ==
 Changed which ip address is saved. Only latest IP address is saved and all older one's are deleted.
+== 1.07 ==
+Added multiuser tracking. This version to be used with version 1.06 or later or the Bad Bot Exterminator.
 
 
 == Upgrade Notice ==
@@ -68,4 +70,5 @@ dpaBadBot PHP program was upgraded to allow you to preview your edited posts. So
 Removed the check for logout as not a good idea. 
 == 1.06 ==
 Changed which ip address is saved. Only latest IP address is saved and all older one's are deleted.
-
+== 1.07 ==
+Added multiuser tracking.  This version to be used with version 1.06 or later or the Bad Bot Exterminator.
