@@ -2,9 +2,9 @@
 Contributors: Dr. Peter Achutha
 Tags: bad bot, hack, security, brute force login, block hackers, ddos attack
 Requires at least: 3.9.1
-Tested up to: 4.0
-License URI: https://www.dpabadbot.com
-Stable tag: 1.06
+Tested up to: 4.0.1
+License URI: https://www.dpabadbot.com/kill-all-bad-bots-hammer-hackers-and-ddos-attackers-for-protection-and-wordpress-website-security.php
+Stable tag: 1.08
 
 
 dpaBadBotWP automatically tells dpaBadBot your current IP address and you will not be blocked from working on your WordPress site.
@@ -20,7 +20,9 @@ This WordPress plugin, dpaBadBotWP was developed to tell dpaBadBot when you are 
 
 Note: If you are upgrading and the plugin has problems accessing files, DELETE this plugin and reinstall the plugin as all files names were changed to lower case.
 
+It now stops automatic WordPress core updates so that the Bad Bot Exterminator, dpaBadBot, will not be erased.
 
+Do visit our site https://www.dpabadbot.com/kill-all-bad-bots-hammer-hackers-and-ddos-attackers-for-protection-and-wordpress-website-security.php for more information on the Bad Bot Exterminator
 == Installation ==
 1. Upload 'dpabadbotwp.zip' to the '/wp-content/plugins/' directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
@@ -55,6 +57,8 @@ Removed the check for logout as not a good idea.
 Changed which ip address is saved. Only latest IP address is saved and all older one's are deleted.
 == 1.07 ==
 Added multiuser tracking. This version to be used with version 1.06 or later or the Bad Bot Exterminator.
+== 1.08 ==
+Stops automatic WordPress core updates by setting filter 'auto_update_core' to '__return_false'.
 
 
 == Upgrade Notice ==
@@ -72,3 +76,5 @@ Removed the check for logout as not a good idea.
 Changed which ip address is saved. Only latest IP address is saved and all older one's are deleted.
 == 1.07 ==
 Added multiuser tracking.  This version to be used with version 1.06 or later or the Bad Bot Exterminator.
+== 1.08 ==
+Stops automatic WordPress core updates by setting filter 'auto_update_core' to '__return_false'.

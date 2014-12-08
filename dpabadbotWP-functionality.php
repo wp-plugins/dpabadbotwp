@@ -2,8 +2,8 @@
 /**
  * Plugin Name: dpaBadBotWP
  * Plugin URI: https://www.dpabadbot.com/dpabadbotwp-wordpress-plugin-for-dpabadbot.php
- * Description: dpaBadtBotWP is a plugin to be used with dpaBadBot Shield php program. The dpaBadBotWP plugin sends dpaBadBot your IP address automatically, so that you will not be blocked. You need to purchase dpaBadBot separately or download the 30 Day Trial version before using this plugin, dpaBadBotWP. dpaBatBot (not the plugin) can lock up WordPress so that no one can login - stops hackers from logging in and can track who are your visitors. By tracking visitors it blocks hackers, spiders, crawlers, scrappers, all of whom overload your server and hack your site. You can manually block by IP address and by spider or bad bot name. Add multiuser tracking of IP addresses.
- * Version: 1.07
+ * Description: dpaBadtBotWP is a plugin to be used with The Bad Bot Exterminator, dpaBadBot, shield php program. The dpaBadBotWP plugin sends dpaBadBot your IP address automatically, so that you will not be blocked. You need to purchase dpaBadBot separately or download the 30 Day Trial version before using this plugin, dpaBadBotWP. dpaBatBot (not the plugin) can lock up WordPress so that no one can login - stops hackers from logging in and can track who are your visitors. By tracking visitors it blocks hackers, spiders, crawlers, scrappers, all of whom overload your server and hack your site. You can manually block by IP address and by spider or bad bot name. Add multiuser tracking of IP addresses. And for safety sake, this plugin stops WordPress automatic core updates.
+ * Version: 1.08
  * Author: Dr. Peter Achutha
  * Author URI: https://www.facebook.com/peter.achutha
  * License: 
@@ -163,7 +163,7 @@ if ( is_admin() ){
 		}
 }
 
-
+add_filter( 'auto_update_core', '__return_false' );
 	
 //	if ( is_admin() ){
 
