@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') or die("No script kiddies please!");
 //include 'spmyfunctions.php';
-
+$spmy_dpabadbot_nofile = '';
 
 //$spmy_dpabadbot_setup_file = $installbase.'wp-content/plugins/dpabadbotwp/setup.txt';
 $spmy_dpabadbot_setup_file = dirname(__FILE__) .'/setup.txt';
@@ -15,22 +15,24 @@ if( strlen( $spmy_dpabadbot_setup_tmp ) > 2 && $spmy_dpabadbot_setup_sz > 0 ){
 	$spmy_dpabadbot_GMThours = $spmy_dpabadbot_setup_data[1]/3600;
 //	echo '<br>set up file has data';
 } else {
-	$spmy_dpabadbot_path = '';
-	$spmy_dpabadbot_setup_data[0] = '';
+	$spmy_dpabadbot_path = $wppathstr.'dpabadbot/';
+	$spmy_dpabadbot_setup_data[0] = $wppathstr.'dpababdot';
 	$spmy_dpabadbot_GMThours = 0;
 	$spmy_dpabadbot_setup_data[1] = 0;
 }
 spmy_dpabadbot_write_file( $spmy_dpabadbot_setup_file, serialize( $spmy_dpabadbot_setup_data ) );
 //echo '<br>GMT is: '.$spmy_dpabadbot_GMThours.' ';
 
-if( $_POST[spmy_dpabadbot_setup] == 'Submit' ){
+if( isset( $_POST['spmy_dpabadbot_setup_MyData'] ) ){
+if( $_POST['spmy_dpabadbot_setup_MyData'] == 'Submit' ){
 unset($spmy_dpabadbot_setup_data ) ;
 
 //if( isset( $_POST[spmy_dpabadbotsite] ) ) {
-	$spmy_dpabadbot_sitenow = esc_url( trim( $_POST[spmy_dpabadbotsite] ) ); 
+	$spmy_dpabadbot_sitenow = trim( $_POST['spmy_dpabadbotsite'] ) ; 
 	$spmy_dpabadbot_sitenow =  rtrim( trim( $spmy_dpabadbot_sitenow ), '/'); 	
 	$spmy_dpabadbot_sitenow = $spmy_dpabadbot_sitenow.'/';
 	$spmy_dpabadbot_path = $spmy_dpabadbot_sitenow ;
+//	echo '<br> sitenow: '.$spmy_dpabadbot_sitenow.'  ';
 //	echo '<br>sitenow is: '.$spmy_dpabadbot_sitenow.', path: '.$spmy_dpabadbot_path.'  ';
 	if( file_exists( $spmy_dpabadbot_sitenow ) ){
 		$spmy_dpabadbot_nofile = '<span style="color:blue;">'.$spmy_dpabadbot_sitenow.'</span><span style="color:green;"> directory exists</span>';
@@ -41,8 +43,10 @@ unset($spmy_dpabadbot_setup_data ) ;
 			}
 //}
 //if( isset( $_POST[spmy_dpabadbotGMT] ) ){
-	$spmy_dpabadbot_GMThours = 1*trim( $_POST[spmy_dpabadbotGMT] );
+	if( isset( $_POST['spmy_dpabadbotGMT'] ) ) {
+	$spmy_dpabadbot_GMThours = 1*trim( $_POST['spmy_dpabadbotGMT'] );
 	$spmy_dpabadbot_setup_data[1] = 3600*$spmy_dpabadbot_GMThours ;
+	}
 //	}
 
 if( file_exists( $spmy_dpabadbot_setup_file ) ){
@@ -51,6 +55,8 @@ if( file_exists( $spmy_dpabadbot_setup_file ) ){
 clearstatcache();	
 spmy_dpabadbot_write_file( $spmy_dpabadbot_setup_file, serialize( $spmy_dpabadbot_setup_data ) );
 } 
+}
+
 
 $spmy_dpabadbot_maxlen = 25 ;
 $spmy_dpabadbot_cl = strlen( $wppathstr ) ;
@@ -65,7 +71,7 @@ $spmy_dpabadbot_maxlen = $spmy_dpabadbot_maxlen + 5;
 <div class="wrap">
 <?php
 $spmy_dpabadbot_ip = spmy_dpabadbot_get_client_ip();
-echo '<br><span style="color:red;font-size:24px;font-style:normal;">Welcome to dpaBadBot<b>WP</b> Setup (Version 1.07) </span>';
+echo '<br><span style="color:red;font-size:24px;font-style:normal;">Welcome to dpaBadBot<b>WP</b> Setup (Version 1.09) </span>';
 echo '<p><span style="color:blue;font-size:14px;font-style:normal;">dpaBadBot is a php program that was developed to block hacker attacks on WordPress, Joomla, ... and other websites. Please visit our website at <a target="_blank" href="https://www.dpabadbot.com">https://www.dpabadbot.com</a> for more details on dpaBadBot that blocks hackers, stops brute force login attempts and defends against ddos attacks.</p>
 <p><span style="color:blue;font-size:14px;font-style:normal;">This plugin, dpaBadBot<b>WP</b>, sets up the data file that holds your current IP address so that you will not be blocked from accessing your site. Whenever you are logged into WordPress, your current IP address is recorded so that dpaBadBot does not block your access to your site. 
 <p><span style="color:blue;font-size:14px;font-style:normal;">By its self this plugin will not be useful if you had not purchased <a target="_blank" href="https://www.dpabadbot.com">dpaBadBot</a> or downloaded the <a href="https://www.dpabadbot.com/30daydlCU.php?pdtno=5" target="_blank">30 Day Trial version</a>.  </span></p>
@@ -84,7 +90,7 @@ echo '<p><span style="color:blue;font-size:14px;font-style:normal;">dpaBadBot is
 <tr><td></td><td></td></tr>
 
 </table>
-<input type="submit" name="spmy_dpabadbot_setup" value="Submit" >
+<input type="submit" name="spmy_dpabadbot_setup_MyData" value="Submit" >
 </form>
 
 </div>
@@ -96,14 +102,18 @@ $spmy_dpabadbot_datadir = $spmy_dpabadbot_path.'data/';
 $spmy_dpabadbot_ip_file = $spmy_dpabadbot_path.'data/wpipadd.txt';
 
 //delete an existing blocked ip address
-if( $_POST[spmy_dpabadbot_deleteip] == 'Delete Data' ){
+if( isset( $_POST['spmy_dpabadbot_deleteip']  ) ){
+if( $_POST['spmy_dpabadbot_deleteip'] == 'Delete Data' ){
 clearstatcache();
 if( file_exists( $spmy_dpabadbot_ip_file ) ){
 	unlink( $spmy_dpabadbot_ip_file );
 }
 }
+}
 
 
+//echo '<br>path is : '.$spmy_dpabadbot_path.' ';
+if( $spmy_dpabadbot_path != '' ){
 if( file_exists( $spmy_dpabadbot_datadir ) ){
 //if( file_exists( $spmy_dpabadbot_datadir ) ){
 	if( file_exists( $spmy_dpabadbot_ip_file ) ){ 
@@ -143,9 +153,9 @@ foreach( $spmy_dpabadbot_ip_addrs as $mykey => $myvalue){
 }
 
 } else {
-echo '<span style="color:red;font-size:22px">Check your dpaBadBot directory exists</span><span style="color:blue;font-size:22px">. It should be http://www.mydomain.com/dpabadbot/ or something similar but ending with "/dpabadbot/". Please refer to dpaBadBot menu option</span> <span style="color:brown;font-size:22px">Setup > Setup Blog Security or Blog Upgrade</span>';
+echo '<span style="color:red;font-size:22px">Check your dpaBadBot directory exists</span><span style="color:blue;font-size:22px">. It should be home/www/mydomain.com/dpabadbot/ or something similar but ending with "/dpabadbot/". Please refer to dpaBadBot menu option</span> <span style="color:brown;font-size:22px">Setup > Setup Blog Security or Blog Upgrade</span>';
 }
-
+}
 
 echo '<br><p><span style="color:darkblue;font-size:14px;font-style:normal;">If you intend to upgrade WordPress, do Remember to go to dpaBadBot and Unlock WordPress and Stop Tracking Visitors before you upgrade WordPress. Upgrade WordPress then go to dpBadBot menu <span style="color:brown;">Setup > Setup Blog Security or Blog Upgrade</span> and save the new setup. Its just telling dpaBadBot that the login and index files were upgraded and need to be taken into account. </span></p>
 ';

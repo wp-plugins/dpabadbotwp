@@ -3,7 +3,7 @@
  * Plugin Name: dpaBadBotWP
  * Plugin URI: https://www.dpabadbot.com/dpabadbotwp-wordpress-plugin-for-dpabadbot.php
  * Description: dpaBadtBotWP is a plugin to be used with The Bad Bot Exterminator, dpaBadBot, shield php program. The dpaBadBotWP plugin sends dpaBadBot your IP address automatically, so that you will not be blocked. You need to purchase dpaBadBot separately or download the 30 Day Trial version before using this plugin, dpaBadBotWP. dpaBatBot (not the plugin) can lock up WordPress so that no one can login - stops hackers from logging in and can track who are your visitors. By tracking visitors it blocks hackers, spiders, crawlers, scrappers, all of whom overload your server and hack your site. You can manually block by IP address and by spider or bad bot name. Add multiuser tracking of IP addresses. And for safety sake, this plugin stops WordPress automatic core updates.
- * Version: 1.08
+ * Version: 1.09
  * Author: Dr. Peter Achutha
  * Author URI: https://www.facebook.com/peter.achutha
  * License: 
@@ -15,22 +15,26 @@ defined('ABSPATH') or die("No script kiddies please!");
 // Function to get the client ip address
 function spmy_dpabadbot_get_client_ip() {
     $ipaddress = '';
-    if ($_SERVER['HTTP_CLIENT_IP'])
-        $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
-    else if($_SERVER['HTTP_X_FORWARDED_FOR'])
-        $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
-    else if($_SERVER['HTTP_X_FORWARDED'])
-        $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
-    else if($_SERVER['HTTP_FORWARDED_FOR'])
-        $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
-    else if($_SERVER['HTTP_FORWARDED'])
-        $ipaddress = $_SERVER['HTTP_FORWARDED'];
-    else if($_SERVER['REMOTE_ADDR'])
-        $ipaddress = $_SERVER['REMOTE_ADDR'];
-    else
-        $ipaddress = 'UNKNOWN';
- 
-    return( trim( $ipaddress ) );
+    $ipaddress = getenv('REMOTE_ADDR');
+	if( $ipaddress == '' ){	
+		$ipaddress = getenv('HTTP_CLIENT_IP');
+		if( $ipaddress == '' ){	
+			$ipaddress = getenv('HTTP_FORWARDED_FOR');
+			if( $ipaddress == '' ){	
+				$ipaddress = getenv('HTTP_FORWARDED');
+				if( $ipaddress == '' ){	
+				$ipaddress = getenv('HTTP_X_FORWARDED');
+				if( $ipaddress == '' ){	
+					$ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+					}
+					else { 
+						$ipaddress = 'UNKNOWN';
+						}
+				}
+			}
+		}
+	}
+ return( trim( $ipaddress ) );
 }
 
 
@@ -79,6 +83,8 @@ $spmy_dpabadbot_setup_sz = count( $spmy_dpabadbot_setup_data );
 if( strlen( $spmy_dpabadbot_setup_tmp ) > 2 && $spmy_dpabadbot_setup_sz > 0 ){
 	$spmy_dpabadbot_path = $spmy_dpabadbot_setup_data[0];
 //	echo '<br>set up file has data';
+} else {
+$spmy_dpabadbot_path = dirname(__FILE__);
 }
 
 
