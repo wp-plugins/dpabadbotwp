@@ -4,7 +4,7 @@ Tags: bad bot, hack, security, brute force login, block hackers, ddos attack
 Requires at least: 3.9.1
 Tested up to: 4.0.1
 License URI: https://www.dpabadbot.com/kill-all-bad-bots-hammer-hackers-and-ddos-attackers-for-protection-and-wordpress-website-security.php
-Stable tag: 1.09
+Stable tag: 1.10
 
 
 dpaBadBotWP automatically tells dpaBadBot your current IP address and you will not be blocked from working on your WordPress site.
@@ -61,6 +61,8 @@ Added multiuser tracking. This version to be used with version 1.06 or later or 
 Stops automatic WordPress core updates by setting filter 'auto_update_core' to '__return_false'.
 == 1.09 ==
 Made the PHP code more compatible with the WordPress style by using the debug setting in wp-config.php
+== 1.10 ==
+Corrected some bugs. The directory name can now end with or without '/'.
 
 
 == Upgrade Notice ==
@@ -82,3 +84,5 @@ Added multiuser tracking.  This version to be used with version 1.06 or later or
 Stops automatic WordPress core updates by setting filter 'auto_update_core' to '__return_false'.
 == 1.09 ==
 Made the PHP code more compatible with the WordPress style by using the debug setting in wp-config.php
+== 1.10 ==
+Corrected some bugs.  The directory name can now end with or without '/'.

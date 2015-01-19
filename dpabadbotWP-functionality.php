@@ -2,8 +2,8 @@
 /**
  * Plugin Name: dpaBadBotWP
  * Plugin URI: https://www.dpabadbot.com/dpabadbotwp-wordpress-plugin-for-dpabadbot.php
- * Description: dpaBadtBotWP is a plugin to be used with The Bad Bot Exterminator, dpaBadBot, shield php program. The dpaBadBotWP plugin sends dpaBadBot your IP address automatically, so that you will not be blocked. You need to purchase dpaBadBot separately or download the 30 Day Trial version before using this plugin, dpaBadBotWP. dpaBatBot (not the plugin) can lock up WordPress so that no one can login - stops hackers from logging in and can track who are your visitors. By tracking visitors it blocks hackers, spiders, crawlers, scrappers, all of whom overload your server and hack your site. You can manually block by IP address and by spider or bad bot name. Add multiuser tracking of IP addresses. And for safety sake, this plugin stops WordPress automatic core updates.
- * Version: 1.09
+ * Description: dpaBadtBotWP is a plugin to be used with The Bad Bot Exterminator, dpaBadBot, firewall shield php program. The dpaBadBotWP plugin sends dpaBadBot your IP address automatically, so that you will not be blocked. You need to purchase dpaBadBot separately before using this plugin, dpaBadBotWP. dpaBatBot (not the plugin) can lock up WordPress so that no one can login - stops hackers from logging in and can track who are your visitors. By tracking visitors it blocks hackers, spiders, crawlers, scrappers, all of whom overload your server and hack your site. You can manually block by IP address and by spider or bad bot name. Add multiuser tracking of IP addresses. And for safety sake, this plugin stops WordPress automatic core updates.
+ * Version: 1.10
  * Author: Dr. Peter Achutha
  * Author URI: https://www.facebook.com/peter.achutha
  * License: 
@@ -52,7 +52,31 @@ add_options_page("dpaBadBotWP", "DpaBadBotWPMenu", 'administrator', "dpaBadBotWP
 
 }
  
+function spmy_dpabadbot_post_numbers(){
+$spmy_dpaphpcache_post_count = wp_count_posts();
+foreach ($spmy_dpaphpcache_post_count as $key => $value) {
+	$spmy_dpaphpcache_post_nos[$key] = $value ;
+	}	
+unset( $spmy_dpaphpcache_post_count ); //clear memory
+//echo 'Total posts: '.$iz.' '; 
+$spmy_dpabadbot_setup_file = dirname(__FILE__) .'/setup.txt';
+$wppathstr = str_replace( 'wp-content/plugins/dpabadbotwp/setup.txt', '', $spmy_dpabadbot_setup_file);
+$spmy_dpabadbot_setup_tmp = spmy_dpabadbot_read_file( $spmy_dpabadbot_setup_file );
+$spmy_dpabadbot_setup_data = unserialize( $spmy_dpabadbot_setup_tmp );
+$spmy_dpabadbot_setup_sz = count( $spmy_dpabadbot_setup_data );
+if( strlen( $spmy_dpabadbot_setup_tmp ) > 2 && $spmy_dpabadbot_setup_sz > 0 ){
+	if( $spmy_dpabadbot_setup_data[0] != '' ){
+		$spmy_dpabadbot_path = $spmy_dpabadbot_setup_data[0];
+		//$spmy_dpabadbot_GMThours = $spmy_dpabadbot_setup_data[1]/3600;
+		//check dpabadbot files exists
+		//$spmy_dpabadbot_datadir = $spmy_dpabadbot_path.'data/';
+		//$spmy_dpabadbot_ip_file = $spmy_dpabadbot_path.'data/wpipadd.txt';
+		$spmy_dpabadbot_posts_file = $spmy_dpabadbot_path.'config/wpposts.txt';
+		spmy_dpabadbot_write_file( $spmy_dpabadbot_posts_file, serialize( $spmy_dpaphpcache_post_nos['publish'] ) );
+		}
+	}
 
+}
 
 function spmy_dpabadbot_read_file( $f ){
 $tmpstr = '';
@@ -145,6 +169,10 @@ if ( is_admin() ){
 
 	if( function_exists( 'spmy_dpabadbot_actions')) {
 		add_action('admin_menu', 'spmy_dpabadbot_actions');	
+		add_action( 'save_post', 'spmy_dpabadbot_post_numbers' );	//update & preview = /../../autosave
+		add_action( 'post_updated', 'spmy_dpabadbot_post_numbers' ); //preview changes	& update posts	
+		add_action( 'edit_post', 'spmy_dpabadbot_post_numbers' );	//preview changes
+		add_action( 'publish_post', 'spmy_dpabadbot_post_numbers' );	//update post
 	if( file_exists( $spmy_dpabadbot_datadir ) ){
 		if( file_exists( $spmy_dpabadbot_ip_file ) ){ 
 			$spmy_dpabadbot_ip_tmp = spmy_dpabadbot_read_file( $spmy_dpabadbot_ip_file );
