@@ -2,7 +2,7 @@
 Contributors: Dr. Peter Achutha
 Tags: bad bot, hack, security, brute force login, block hackers, ddos attack
 Requires at least: 3.9.1
-Tested up to: 4.0.1
+Tested up to: 4.1
 License URI: https://www.dpabadbot.com/kill-all-bad-bots-hammer-hackers-and-ddos-attackers-for-protection-and-wordpress-website-security.php
 Stable tag: 1.10
 
