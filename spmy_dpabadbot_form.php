@@ -85,7 +85,7 @@ $spmy_dpabadbot_maxlen = $spmy_dpabadbot_maxlen + 5;
 <div class="wrap">
 <?php
 $spmy_dpabadbot_ip = spmy_dpabadbot_get_client_ip();
-echo '<br><span style="color:red;font-size:24px;font-style:normal;">Welcome to dpaBadBot<b>WP</b> Setup (Version 1.09) </span>';
+echo '<br><span style="color:red;font-size:24px;font-style:normal;">Welcome to dpaBadBot<b>WP</b> Setup (Version 1.11 [20150219]) </span>';
 echo '<p><span style="color:blue;font-size:14px;font-style:normal;">dpaBadBot is a php program that was developed to block hacker attacks on WordPress, Joomla, ... and other websites. Please visit our website at <a target="_blank" href="https://www.dpabadbot.com">https://www.dpabadbot.com</a> for more details on dpaBadBot that blocks hackers, stops brute force login attempts and defends against ddos attacks.</span></p>
 <p><span style="color:blue;font-size:14px;font-style:normal;">This plugin, dpaBadBot<b>WP</b>, sets up the data file that holds your current IP address so that you will not be blocked from accessing your site. Whenever you are logged into WordPress, your current IP address is recorded so that dpaBadBot does not block your access to your site.</span></p>
 <p><span style="color:blue;font-size:14px;font-style:normal;">By its self this plugin will not be useful if you had not purchased <a target="_blank" href="https://www.dpabadbot.com">dpaBadBot</a>.</span></p>
@@ -226,3 +226,8 @@ $spmy_dpabadbot_plugins_dir = plugins_url().'/dpabadbotwp';
 <tr><td style="color:darkblue;font-size:14px;font-style:normal;vertical-align:top;"><span style="color:red;">dpaImageCompression</span> - Image Compression. Compresses images you have saved on your websites.</td><td style="vertical-align:top;"><a target="_blank" href="http://www.dpaic.com"><img src="<?php echo $spmy_dpabadbot_plugins_dir.'/ich30.png'; ?>"  width="402" height="30"></a></td></tr>
 <tr><td style="color:blue;font-size:14px;font-style:normal;vertical-align:top;"><span style="color:red;">Web Hosting Services</span> - from budget hosting to high performance sites.</td><td style="vertical-align:top;"><a target="_blank" href="http://www.peterpublishing.com"><img src="<?php echo $spmy_dpabadbot_plugins_dir.'/webhostingservicesh30.png'; ?>" width="405" height="30"></a></td></tr>
 </table>
+<?php
+
+//end of script
+
+?>

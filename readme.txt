@@ -63,7 +63,8 @@ Stops automatic WordPress core updates by setting filter 'auto_update_core' to '
 Made the PHP code more compatible with the WordPress style by using the debug setting in wp-config.php
 == 1.10 ==
 Corrected some bugs. The directory name can now end with or without '/'.
-
+== 1.11 ==
+Undid some of the upgrades in 1.09 to make it less prone to spurios memory problems.
 
 == Upgrade Notice ==
 == 1.01 ==
@@ -86,3 +87,5 @@ Stops automatic WordPress core updates by setting filter 'auto_update_core' to '
 Made the PHP code more compatible with the WordPress style by using the debug setting in wp-config.php
 == 1.10 ==
 Corrected some bugs.  The directory name can now end with or without '/'.
+== 1.11 ==
+Undid some of the upgrades in 1.09 to make it less prone to spurios memory problems.
