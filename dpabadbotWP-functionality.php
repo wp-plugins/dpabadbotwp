@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name: dpaBadBotWP
- * Plugin URI: https://www.dpabadbot.com/dpabadbotwp-wordpress-plugin-for-dpabadbot.php
+ * Plugin URI: https://www.dpabadbot.com/wordpress-plugins/dpabadbotwp-helper-for-dpabadbot.php
  * Description: dpaBadtBotWP is a plugin to be used with The Bad Bot Exterminator, dpaBadBot, firewall shield php program. The dpaBadBotWP plugin sends dpaBadBot your IP address automatically, so that you will not be blocked. You need to purchase dpaBadBot separately before using this plugin, dpaBadBotWP. dpaBatBot (not the plugin) can lock up WordPress so that no one can login - stops hackers from logging in and can track who are your visitors. By tracking visitors it blocks hackers, spiders, crawlers, scrappers, all of whom overload your server and hack your site. You can manually block by IP address and by spider or bad bot name. Add multiuser tracking of IP addresses. And for safety sake, this plugin stops WordPress automatic core updates.
- * Version: 1.11 [20150219]
+ * Version: 1.12 [20150306]
  * Author: Dr. Peter Achutha
  * Author URI: https://www.facebook.com/peter.achutha
  * License: 
@@ -53,6 +53,7 @@ add_options_page("dpaBadBotWP", "DpaBadBotWPMenu", 'administrator', "dpaBadBotWP
 }
  
 function spmy_dpabadbot_post_numbers(){
+clearstatcache();
 $spmy_dpaphpcache_post_count = wp_count_posts();
 foreach ($spmy_dpaphpcache_post_count as $key => $value) {
 	$spmy_dpaphpcache_post_nos[$key] = $value ;
@@ -64,6 +65,7 @@ $wppathstr = str_replace( 'wp-content/plugins/dpabadbotwp/setup.txt', '', $spmy_
 $spmy_dpabadbot_setup_tmp = spmy_dpabadbot_read_file( $spmy_dpabadbot_setup_file );
 $spmy_dpabadbot_setup_data = unserialize( $spmy_dpabadbot_setup_tmp );
 $spmy_dpabadbot_setup_sz = count( $spmy_dpabadbot_setup_data );
+
 if( strlen( $spmy_dpabadbot_setup_tmp ) > 2 && $spmy_dpabadbot_setup_sz > 0 ){
 	if( $spmy_dpabadbot_setup_data[0] != '' ){
 		$spmy_dpabadbot_path = $spmy_dpabadbot_setup_data[0];
@@ -72,6 +74,7 @@ if( strlen( $spmy_dpabadbot_setup_tmp ) > 2 && $spmy_dpabadbot_setup_sz > 0 ){
 		//$spmy_dpabadbot_datadir = $spmy_dpabadbot_path.'data/';
 		//$spmy_dpabadbot_ip_file = $spmy_dpabadbot_path.'data/wpipadd.txt';
 		$spmy_dpabadbot_posts_file = $spmy_dpabadbot_path.'config/wpposts.txt';
+		//echo '<br>1. filename to open: '.$spmy_dpabadbot_posts_file.'  ' ;
 		spmy_dpabadbot_write_file( $spmy_dpabadbot_posts_file, serialize( $spmy_dpaphpcache_post_nos['publish'] ) );
 		}
 	}
@@ -101,8 +104,10 @@ fclose( $fh );
 
 //$spmy_dpabadbot_setup_file = $installbase.'wp-content/plugins/dpabadbotwp/setup.txt';
 $spmy_dpabadbot_setup_file = dirname(__FILE__) .'/setup.txt';
+//echo ' <br>2. setup file : '.$spmy_dpabadbot_setup_file.'  ' ;
 $spmy_dpabadbot_setup_tmp = spmy_dpabadbot_read_file( $spmy_dpabadbot_setup_file );
 $spmy_dpabadbot_setup_data = unserialize( $spmy_dpabadbot_setup_tmp );
+//echo '<br>3. [0] : '.$spmy_dpabadbot_setup_data.'  ';
 $spmy_dpabadbot_setup_sz = count( $spmy_dpabadbot_setup_data );
 if( strlen( $spmy_dpabadbot_setup_tmp ) > 2 && $spmy_dpabadbot_setup_sz > 0 ){
 	$spmy_dpabadbot_path = $spmy_dpabadbot_setup_data[0];

@@ -16,12 +16,15 @@ unset( $spmy_dpaphpcache_post_count ); //clear memory
 
 
 //$spmy_dpabadbot_setup_file = $installbase.'wp-content/plugins/dpabadbotwp/setup.txt';
+$spmy_dpabadbot_setup_tmp = '';
+$spmy_dpabadbot_setup_sz = 0;
 $spmy_dpabadbot_setup_file = dirname(__FILE__) .'/setup.txt';
 $wppathstr = str_replace( 'wp-content/plugins/dpabadbotwp/setup.txt', '', $spmy_dpabadbot_setup_file);
+if( file_exists( $spmy_dpabadbot_setup_file )){
 $spmy_dpabadbot_setup_tmp = spmy_dpabadbot_read_file( $spmy_dpabadbot_setup_file );
 $spmy_dpabadbot_setup_data = unserialize( $spmy_dpabadbot_setup_tmp );
 $spmy_dpabadbot_setup_sz = count( $spmy_dpabadbot_setup_data );
-
+}
 if( strlen( $spmy_dpabadbot_setup_tmp ) > 2 && $spmy_dpabadbot_setup_sz > 0 ){
 	$spmy_dpabadbot_path = $spmy_dpabadbot_setup_data[0];
 	$spmy_dpabadbot_GMThours = $spmy_dpabadbot_setup_data[1]/3600;
@@ -32,6 +35,7 @@ if( strlen( $spmy_dpabadbot_setup_tmp ) > 2 && $spmy_dpabadbot_setup_sz > 0 ){
 	$spmy_dpabadbot_GMThours = 0;
 	$spmy_dpabadbot_setup_data[1] = 0;
 	$spmy_dpabadbot_setup_data[2] = $spmy_dpaphpcache_post_nos['publish'];	//number of published posts
+	
 }
 spmy_dpabadbot_write_file( $spmy_dpabadbot_setup_file, serialize( $spmy_dpabadbot_setup_data ) );
 //echo '<br>GMT is: '.$spmy_dpabadbot_GMThours.' ';
@@ -85,7 +89,7 @@ $spmy_dpabadbot_maxlen = $spmy_dpabadbot_maxlen + 5;
 <div class="wrap">
 <?php
 $spmy_dpabadbot_ip = spmy_dpabadbot_get_client_ip();
-echo '<br><span style="color:red;font-size:24px;font-style:normal;">Welcome to dpaBadBot<b>WP</b> Setup (Version 1.11 [20150219]) </span>';
+echo '<br><span style="color:red;font-size:24px;font-style:normal;">Welcome to dpaBadBot<b>WP</b> Setup (Version 1.12 [20150306]) </span>';
 echo '<p><span style="color:blue;font-size:14px;font-style:normal;">dpaBadBot is a php program that was developed to block hacker attacks on WordPress, Joomla, ... and other websites. Please visit our website at <a target="_blank" href="https://www.dpabadbot.com">https://www.dpabadbot.com</a> for more details on dpaBadBot that blocks hackers, stops brute force login attempts and defends against ddos attacks.</span></p>
 <p><span style="color:blue;font-size:14px;font-style:normal;">This plugin, dpaBadBot<b>WP</b>, sets up the data file that holds your current IP address so that you will not be blocked from accessing your site. Whenever you are logged into WordPress, your current IP address is recorded so that dpaBadBot does not block your access to your site.</span></p>
 <p><span style="color:blue;font-size:14px;font-style:normal;">By its self this plugin will not be useful if you had not purchased <a target="_blank" href="https://www.dpabadbot.com">dpaBadBot</a>.</span></p>
@@ -126,7 +130,7 @@ echo '<br><br><table><tr><td>memory used by PHP script: </td><td style="text-ali
 </table>
 
 <h2><span style="color:blue;font-size:18px;font-style:normal;">Please confirm the location of dpaBadBot & Time Zone</span></h2>
-<form action="<? echo htmlspecialchars( $PHP_SELF ) ; ?>"  method="post">
+<form action="<? echo htmlspecialchars( $_SERVER['REQUEST_URI'] ) ; ?>"  method="post">
 <table>
 <tr><td></td><td></td></tr>
 <tr><td>GMT/UTC Time zone (+/-hours): </td><td><input type="text" size="10" name="spmy_dpabadbotGMT" value="<?php echo $spmy_dpabadbot_GMThours; ?>" > hours</td></tr>
@@ -184,7 +188,7 @@ if( $spmy_dpabadbot_ip_sz > 0 && strlen( $spmy_dpabadbot_ip_tmp ) > 2 ){
 ?>
 
 <h2><span style="color:blue;font-size:18px;font-style:normal;">The IP Addresses you have used</span></h2>
-<form action="<? echo htmlspecialchars( $PHP_SELF ) ; ?>"  method="post">
+<form action="<? echo htmlspecialchars( $_SERVER['REQUEST_URI'] ) ; ?>"  method="post">
 <table border='1'>
 <th>Item</th>
 <th>IP Address</th>

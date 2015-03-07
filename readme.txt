@@ -2,27 +2,28 @@
 Contributors: Dr. Peter Achutha
 Tags: bad bot, hack, security, brute force login, block hackers, ddos attack
 Requires at least: 3.9.1
-Tested up to: 4.1
-License URI: https://www.dpabadbot.com/kill-all-bad-bots-hammer-hackers-and-ddos-attackers-for-protection-and-wordpress-website-security.php
-Stable tag: 1.10
+Tested up to: 4.1.1
+License URI: https://www.dpabadbot.com/wordpress-plugins/dpabadbotwp-helper-for-dpabadbot.php
+Stable tag: 1.12
 
 
-dpaBadBotWP automatically tells dpaBadBot your current IP address and you will not be blocked from working on your WordPress site.
+This plugin, dpaBadBotWP, automatically tells dpaBadBot, the firewall software, your current IP address and you will not be blocked from working on your WordPress site.
 
 == Description ==
-dpaBadBot is a php program that was developed to block hacker attacks on WordPress, Joomla, ... and other websites. Visit the website at http://www.dpabadbot.com for more details on dpaBadBot that blocks hackers, stops brute force login attempts and defends against ddos attacks. 
+dpaBadBot is a php program that was developed to block hacker attacks on WordPress, Joomla, ... and other websites. Visit the website at https://www.dpabadbot.com for more details on dpaBadBot that blocks hackers, stops brute force login attempts and defends against ddos attacks. 
 
 A little more about the dpaBadBot program (not the plugin) 
 Firslty, you can lock up your WordPress site so that no one can login to your site. 
 Secondly, this program will record every visitor and decide who should be allowed to access your website. It tries to block hackers, bad bots, scrappers, crawlers, spiders, ... It can block by IP address or by name of web crawler. 
 
-This WordPress plugin, dpaBadBotWP was developed to tell dpaBadBot when you are working on your WordPress site and allowing you to carry on working by sending your IP address to dpaBadBot and thereby allow you unlimited access to your site. By its self this plugin will not be useful if you had not purchased dpaBadBot or downloaded the 30 Day Trial version.
+This WordPress plugin, dpaBadBotWP was developed to tell dpaBadBot when you are working on your WordPress site and allowing you to carry on working by sending your IP address to dpaBadBot and thereby allow you unlimited access to your site. By its self this plugin will not be useful if you had not purchased dpaBadBot, the WordPress protection firewall software.
 
 Note: If you are upgrading and the plugin has problems accessing files, DELETE this plugin and reinstall the plugin as all files names were changed to lower case.
 
 It now stops automatic WordPress core updates so that the Bad Bot Exterminator, dpaBadBot, will not be erased.
 
-Do visit our site https://www.dpabadbot.com/kill-all-bad-bots-hammer-hackers-and-ddos-attackers-for-protection-and-wordpress-website-security.php for more information on the Bad Bot Exterminator
+Do visit our site https://www.dpabadbot.com/index.php for more information on the Bad Bot Exterminator
+
 == Installation ==
 1. Upload 'dpabadbotwp.zip' to the '/wp-content/plugins/' directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
@@ -65,6 +66,9 @@ Made the PHP code more compatible with the WordPress style by using the debug se
 Corrected some bugs. The directory name can now end with or without '/'.
 == 1.11 ==
 Undid some of the upgrades in 1.09 to make it less prone to spurios memory problems.
+== 1.12 ==
+Mde some code more compatible with WordPress and checked if file existed.
+
 
 == Upgrade Notice ==
 == 1.01 ==
@@ -89,3 +93,5 @@ Made the PHP code more compatible with the WordPress style by using the debug se
 Corrected some bugs.  The directory name can now end with or without '/'.
 == 1.11 ==
 Undid some of the upgrades in 1.09 to make it less prone to spurios memory problems.
+== 1.12 ==
+Mde some code more compatible with WordPress and checked if file existed.
