@@ -4,7 +4,7 @@ Tags: bad bot, hack, security, brute force login, block hackers, ddos attack
 Requires at least: 3.9.1
 Tested up to: 4.1.1
 License URI: https://www.dpabadbot.com/wordpress-plugins/dpabadbotwp-helper-for-dpabadbot.php
-Stable tag: 1.12
+Stable tag: 1.14
 
 
 This plugin, dpaBadBotWP, automatically tells dpaBadBot, the firewall software, your current IP address and you will not be blocked from working on your WordPress site.
@@ -67,8 +67,13 @@ Corrected some bugs. The directory name can now end with or without '/'.
 == 1.11 ==
 Undid some of the upgrades in 1.09 to make it less prone to spurios memory problems.
 == 1.12 ==
-Mde some code more compatible with WordPress and checked if file existed.
+Made some code more compatible with WordPress and checked if file existed.
+== 1.13 ==
+Found out that when you upgrade any plugin, WordPress will delete the existing plugin before downloading the upgrade version. Since this plugin saves all settings in the plugin directory all settings were lost upon upgrading. With version 1.13 a separate directory is created .../wp-contents/plugins/dpabadbotwpdata/ and all settings are saved in the altrnative sub-directory. Thus even after upgrading the original seetings are still available.
 
+Changed all variable names to begin with $spmywp_.
+== 1.14 ==
+changed permission of .../wp-content/plugins/dpabadbotwpdata/ sub-directory to 0775 & stop recording visitors not logged in
 
 == Upgrade Notice ==
 == 1.01 ==
@@ -94,4 +99,10 @@ Corrected some bugs.  The directory name can now end with or without '/'.
 == 1.11 ==
 Undid some of the upgrades in 1.09 to make it less prone to spurios memory problems.
 == 1.12 ==
-Mde some code more compatible with WordPress and checked if file existed.
+Made some code more compatible with WordPress and checked if file existed.
+== 1.13 ==
+Found out that when you upgrade any plugin, WordPress will delete the existing plugin before downloading the upgrade version. Since this plugin saves all settings in the plugin directory all settings were lost upon upgrading. With version 1.13 a separate directory is created .../wp-contents/plugins/dpabadbotwpdata/ and all settings are saved in the altrnative sub-directory. Thus even after upgrading the original seetings are still available.
+
+Changed all variable names to begin with $spmywp_.
+== 1.14 ==
+changed permission of .../wp-content/plugins/dpabadbotwpdata/ sub-directory to 0775 & stop recording visitors not logged in
