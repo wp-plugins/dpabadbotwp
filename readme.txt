@@ -2,7 +2,7 @@
 Contributors: Dr. Peter Achutha
 Tags: bad bot, hack, security, brute force login, block hackers, ddos attack
 Requires at least: 3.9.1
-Tested up to: 4.2.1
+Tested up to: 4.2.2
 License URI: https://www.dpabadbot.com/wordpress-plugins/dpabadbotwp-helper-for-dpabadbot.php
 Stable tag: 1.14
 
