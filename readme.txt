@@ -4,7 +4,7 @@ Tags: bad bot, hack, security, brute force login, block hackers, ddos attack
 Requires at least: 3.9.1
 Tested up to: 4.2.2
 License URI: https://www.dpabadbot.com/wordpress-plugins/dpabadbotwp-helper-for-dpabadbot.php
-Stable tag: 1.14
+Stable tag: 1.15
 
 
 This plugin, dpaBadBotWP, automatically tells dpaBadBot, the firewall software, your current IP address and you will not be blocked from working on your WordPress site.
@@ -72,8 +72,12 @@ Made some code more compatible with WordPress and checked if file existed.
 Found out that when you upgrade any plugin, WordPress will delete the existing plugin before downloading the upgrade version. Since this plugin saves all settings in the plugin directory all settings were lost upon upgrading. With version 1.13 a separate directory is created .../wp-contents/plugins/dpabadbotwpdata/ and all settings are saved in the altrnative sub-directory. Thus even after upgrading the original seetings are still available.
 
 Changed all variable names to begin with $spmywp_.
+
 == 1.14 ==
 changed permission of .../wp-content/plugins/dpabadbotwpdata/ sub-directory to 0775 & stop recording visitors not logged in
+
+== 1.15 ==
+added display of memory in MB too.
 
 == Upgrade Notice ==
 == 1.01 ==
@@ -106,3 +110,6 @@ Found out that when you upgrade any plugin, WordPress will delete the existing p
 Changed all variable names to begin with $spmywp_.
 == 1.14 ==
 changed permission of .../wp-content/plugins/dpabadbotwpdata/ sub-directory to 0775 & stop recording visitors not logged in
+
+== 1.15 ==
+added display of memory in MB too.

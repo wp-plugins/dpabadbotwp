@@ -1,3 +1,10 @@
+<style type="text/css">
+table.spmy_dpabadbot_table {  border:1px solid #901C1C; border-collapse: collapse; border-radius: 5px; box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.8); color:darkblue; font-family: Times Roman; font-size:14px; max-width:780px;}  
+#table.spmy_dpabadbot_table td, th {
+#    border: 2px solid gray;
+#}
+
+</style>
 <?php
 defined('ABSPATH') or die("No script kiddies please!");
 //include 'spmyfunctions.php';
@@ -122,54 +129,52 @@ $spmywp_dpabadbot_maxlen = $spmywp_dpabadbot_maxlen + 5;
 <div class="wrap">
 <?php
 $spmywp_dpabadbot_ip = spmy_dpabadbot_get_client_ip();
-echo '<br><span style="color:red;font-size:24px;font-style:normal;">Welcome to dpaBadBot<b>WP</b> Setup (Version 1.14 [20150411]) </span>';
+echo '<br><span style="color:red;font-size:24px;font-style:normal;">Welcome to dpaBadBot<b>WP</b> Setup (Version 1.15 [20150623]) </span>';
 echo '<p><span style="color:blue;font-size:14px;font-style:normal;">dpaBadBot is a php program that was developed to block hacker attacks on WordPress, Joomla, ... and other websites. Please visit our website at <a target="_blank" href="https://www.dpabadbot.com">https://www.dpabadbot.com</a> for more details on dpaBadBot that blocks hackers, stops brute force login attempts and defends against ddos attacks.</span></p>
 <p><span style="color:blue;font-size:14px;font-style:normal;">This plugin, dpaBadBot<b>WP</b>, sets up the data file that holds your current IP address so that you will not be blocked from accessing your site. Whenever you are logged into WordPress, your current IP address is recorded so that dpaBadBot does not block your access to your site.</span></p>
 <p><span style="color:blue;font-size:14px;font-style:normal;">By its self this plugin will not be useful if you had not purchased <a target="_blank" href="https://www.dpabadbot.com">dpaBadBot</a>.</span></p>
 <p><span style="color:darkblue;font-size:14px;font-style:normal;">If you are not sure where dpaBadBot is located please run dpaBadBot and look at menu option <span style="color:brown;">Setup > Setup Blog Security or Blog Upgrade</span> for the directory pathname of dpaBadBot.</span></p>  ';
+/*
 $spmywp_dpabadbot_sysmem = memory_get_usage(false ); 
 $spmywp_dpabadbot_sysallmem = memory_get_usage(true ); 
 $spmywp_dpabadbot_sysmemlimit = filter_var(ini_get("memory_limit"), FILTER_SANITIZE_NUMBER_INT)*1024*1024; //ini_get('memory_limit');
 $spmywp_dpabadbot_sysmemlimitM  = ini_get("memory_limit") ;
 $spmywp_dpabadbot_sysmempeak = memory_get_peak_usage ( true );
 echo '<br><br><table><tr><td>memory used by PHP script: </td><td style="text-align:right">'.number_format($spmywp_dpabadbot_sysmem).' </td><td> Bytes </td></tr><tr><td>memory used allocated: </td><td style="text-align:right">'.number_format($spmywp_dpabadbot_sysallmem).' </td><td> Bytes </td></tr><tr><td>memory system limit: </td><td style="text-align:right">'.number_format($spmywp_dpabadbot_sysmemlimit).'</td><td> Bytes or '.$spmywp_dpabadbot_sysmemlimitM.' </td></tr><tr><td>memory system peak usage: </td><td style="text-align:right">'.number_format($spmywp_dpabadbot_sysmempeak).'</td><td> Bytes </td></tr></table>'	;
-//$spmywp_dpabadbot_dd = array( '91.200.12.46',	'2015/01/12 Mon 21:33:46', 	24,	'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)' );
-//for( $spmywp_dpabadbot_i=0; $spmywp_dpabadbot_i<2001; $spmywp_dpabadbot_i++){
-//$spmywp_dpabadbot_dda[$spmywp_dpabadbot_i] = $spmywp_dpabadbot_dd ;
-//}
-//for( $spmywp_dpabadbot_i=2001; $spmywp_dpabadbot_i<2051; $spmywp_dpabadbot_i++){
-//	$spmywp_dpabadbot_dda[$spmywp_dpabadbot_i] = $spmywp_dpabadbot_dd ;
-//	$spmywp_dpabadbot_var = intval($spmywp_dpabadbot_i/1)*1;
-//	if( $spmywp_dpabadbot_var == $spmywp_dpabadbot_i ){
-//		$spmywp_dpabadbot_sysmem = memory_get_usage(false );
-//		$spmywp_dpabadbot_sysallmem = memory_get_usage(true ); 
-//		$spmywp_dpabadbot_sysmemlimit = filter_var(ini_get("memory_limit"), FILTER_SANITIZE_NUMBER_INT)*1024*1024; //ini_get('memory_limit');
-//		$spmywp_dpabadbot_sysmempeak = memory_get_peak_usage ( true );
-//		$spmywp_dpabadbot_memallleft = $spmywp_dpabadbot_sysallmem - $spmywp_dpabadbot_sysmem ;
-//		$spmywp_dpabadbot_memleft = $spmywp_dpabadbot_sysmempeak - $spmywp_dpabadbot_sysmem ;
-//		echo '<br><br>'.$spmywp_dpabadbot_i.'  rows in array : '.count($spmywp_dpabadbot_dda).' percentage: '.number_format(($spmywp_dpabadbot_sysmem/$spmywp_dpabadbot_sysallmem*100),6).'<br>';
-//		echo '<table><tr><td>memory used by PHP script: </td><td style="text-align:right">'.number_format($spmywp_dpabadbot_sysmem).' </td><td> Bytes </td></tr><tr><td>memory used allocated: </td><td style="text-align:right">'.number_format($spmywp_dpabadbot_sysallmem).' </td><td> Bytes </td></tr><tr><td>memory system limit: </td><td style="text-align:right">'.number_format($spmywp_dpabadbot_sysmemlimit).'</td><td> Bytes </td></tr><tr><td>memory system peak usage: </td><td style="text-align:right">'.number_format($spmywp_dpabadbot_sysmempeak).'</td><td> Bytes </td></tr><tr><td>memory allocated left: </td><td style="text-align:right">'.number_format($spmywp_dpabadbot_memallleft).'</td><td> Bytes </td></tr><tr><td>memory left: </td><td style="text-align:right">'.number_format($spmywp_dpabadbot_memleft).'</td><td> Bytes </td></tr></table>'	;
-		
-//		}
-//	}
-
-
+*/
+$spmy_dpabadbot_sysmem = memory_get_usage(false );
+$spmy_dpabadbot_sysmemM = $spmy_dpabadbot_sysmem /1048576 ;
+$spmy_dpabadbot_sysallmem = memory_get_usage(true ); 
+$spmy_dpabadbot_sysallmemM = $spmy_dpabadbot_sysallmem/1048576;
+$spmy_dpabadbot_sysmemlimitM = ini_get("memory_limit") ;
+$spmy_dpabadbot_sysmemlimit = filter_var($spmy_dpabadbot_sysmemlimitM, FILTER_SANITIZE_NUMBER_INT)*1024*1024; //ini_get('memory_limit');	
+$spmy_dpabadbot_memallleft = $spmy_dpabadbot_sysallmem - $spmy_dpabadbot_sysmem ;
+$spmy_dpabadbot_memallleftM = $spmy_dpabadbot_memallleft / 1048576;
+$spmy_dpabadbot_mempeak = memory_get_peak_usage(true) ;
+$spmy_dpabadbot_mempeakM = $spmy_dpabadbot_mempeak / 1048576;
 ?>
-<table>
+<h1>System Memory Status</h1>
+<table class="spmy_dpabadbot_table">
+<tr><td>memory used: </td><td style="text-align:right"><?php echo number_format($spmy_dpabadbot_sysmem);?> Bytes </td><td> or <?php echo number_format($spmy_dpabadbot_sysmemM, 2);?>MB</td></tr>
+<tr><td>memory allocated: </td><td style="text-align:right"><?php echo number_format($spmy_dpabadbot_sysallmem);?> Bytes </td><td> or <?php echo number_format( $spmy_dpabadbot_sysallmemM, 2);?>MB</td></tr>
+<tr><td>memory limit: </td><td style="text-align:right"><?php echo number_format($spmy_dpabadbot_sysmemlimit);?> Bytes </td><td> or <?php echo $spmy_dpabadbot_sysmemlimitM;?>B</td></tr><tr>
+<td>memory allocated unused: </td><td style="text-align:right"><?php echo number_format($spmy_dpabadbot_memallleft);?> Bytes </td><td> or <?php echo number_format( $spmy_dpabadbot_memallleftM, 2 );?>MB</td></tr>
+<tr><td>memory peak usage: </td><td style="text-align:right"><?php echo number_format($spmy_dpabadbot_mempeak);?> Bytes </td><td> or <?php echo number_format( $spmy_dpabadbot_mempeakM, 2 );?>MB</td></tr>
+</table>
+<br><br>
+
+<table class="spmy_dpabadbot_table">
 <tr><td>Total number of posts: </td><td><input type="text" readonly size="10" value="<?php echo $spmywp_dpaphpcache_post_nos['publish']; ?>" ></td></tr>
 <tr><td>Your Website is at: </td><td><input type="text" readonly size="<?php echo $spmywp_dpabadbot_maxlen; ?>" name="spmy_dpawebsiteis" value="<?php echo $wppathstr; ?>" ></td></tr>
 <tr><td>Your IP Address is: </td><td><input type="text" readonly size="<?php echo $spmywp_dpabadbot_maxlen; ?>" name="spmy_dpawebsiteIP" value="<?php echo $spmywp_dpabadbot_ip; ?>" ></td></tr>
-<tr><td></td><td></td></tr>
 </table>
-
+<br><br>
 <h2><span style="color:blue;font-size:18px;font-style:normal;">Please confirm the location of dpaBadBot & Time Zone</span></h2>
+
 <form action="<? echo htmlspecialchars( $_SERVER['REQUEST_URI'] ) ; ?>"  method="post">
 <table>
-<tr><td></td><td></td></tr>
 <tr><td>GMT/UTC Time zone (+/-hours): </td><td><input type="text" size="10" name="spmy_dpabadbotGMT" value="<?php echo $spmywp_dpabadbot_GMThours; ?>" > hours</td></tr>
 <tr><td>Your dpaBadBot is at: </td><td><input type="text" size="<?php echo $spmywp_dpabadbot_maxlen; ?>" name="spmy_dpabadbotsite" value="<?php echo $spmywp_dpabadbot_path; ?>" ><?php echo $spmywp_dpabadbot_nofile ; ?></td></tr>
-<tr><td></td><td></td></tr>
-
 </table>
 <input type="submit" name="spmy_dpabadbot_setup_MyData" value="Submit" >
 </form>
@@ -222,7 +227,7 @@ if( $spmywp_dpabadbot_ip_sz > 0 && strlen( $spmywp_dpabadbot_ip_tmp ) > 2 ){
 
 <h2><span style="color:blue;font-size:18px;font-style:normal;">The IP Addresses you have used</span></h2>
 <form action="<? echo htmlspecialchars( $_SERVER['REQUEST_URI'] ) ; ?>"  method="post">
-<table border='1'>
+<table border="1">
 <th>Item</th>
 <th>IP Address</th>
 <th>Date</th>
@@ -256,12 +261,11 @@ $spmywp_dpabadbot_plugins_dir = plugins_url().'/dpabadbotwp';
 ?>
 <h3>Other Products by Software Propulsion</h3>
 <table width="800">
-<tr><td style="color:darkblue;font-size:14px;font-style:normal;vertical-align:top;"><span style="color:red;">dpaPHPCache</span> - SuperFast Cache for WordPress. SuperFast Cache is in 2 modules. The 1st is the Cache Controller, in dpaPHPCache - a WordPress Plugin & the 2nd is built into dpaBadBot, The Bad Bot Exterminator & Firewall Shield.</td><td style="vertical-align:top;"><a target="_blank" href="https://www.dpabadbot.com/wordpress-plugins/super-fast-cache-controller-and-php-accelerator-amazing-web-page-speed.php"><img src="<?php echo $spmywp_dpabadbot_plugins_dir.'/sfc30.png'; ?>" width="402" height="30"></a></td></tr>
-<tr><td style="color:blue;font-size:14px;font-style:normal;vertical-align:top;"><span style="color:red;">dpaContactUs</span> - Contact Form that makes life difficult for spammers. Multiple websites can share one email address.</td><td style="vertical-align:top;"><a target="_blank" href="http://www.dpacu.com"><img src="<?php echo $spmywp_dpabadbot_plugins_dir.'/cufh30.png'; ?>" width="402" height="30"></a></td></tr>
-<tr><td style="color:darkblue;font-size:14px;font-style:normal;vertical-align:top;"><span style="color:red;">dpaBadBot</span> - The Bad Bot Exterminator. Very effective anti hacking software that blocks hackers, stop brute force login attemtps and defends against ddos attacks to protect your WordPress website</td><td style="vertical-align:top;"><a target="_blank" href="https://www.dpabadbot.com"><img src="<?php echo $spmywp_dpabadbot_plugins_dir.'/bbbh30.png'; ?>" width="402" height="30"></a></td></tr>
-<tr><td style="color:blue;font-size:14px;font-style:normal;vertical-align:top;"><span style="color:red;">xfcPHPCache</span> - Not for WordPress, Joomla or other blogs but for other php websites. PHP Caching Software</td><td style="vertical-align:top;"><a target="_blank" href="http://www.dpaxfc.com"><img src="<?php echo $spmywp_dpabadbot_plugins_dir.'/xfch30.png'; ?>" width="402" height="30"></a></td></tr>
-<tr><td style="color:darkblue;font-size:14px;font-style:normal;vertical-align:top;"><span style="color:red;">dpaImageCompression</span> - Image Compression. Compresses images you have saved on your websites.</td><td style="vertical-align:top;"><a target="_blank" href="http://www.dpaic.com"><img src="<?php echo $spmywp_dpabadbot_plugins_dir.'/ich30.png'; ?>"  width="402" height="30"></a></td></tr>
+<tr><td style="color:darkblue;font-size:14px;font-style:normal;vertical-align:top;"><span style="color:red;">SuperFast Cache</span> - very fast cache for WordPress. SuperFast Cache is in 2 modules. The 1st is the Cache Controller, in superfastcahce - a WordPress Plugin & the 2nd is built into The Bad Bot Exterminator & Firewall Shield.</td><td style="vertical-align:top;"><a target="_blank" href="https://www.dpabadbot.com/wordpress-plugins/super-fast-cache-controller-and-php-accelerator-amazing-web-page-speed.php"><img src="<?php echo $spmywp_dpabadbot_plugins_dir.'/sfc30.png'; ?>" width="402" height="30"></a></td></tr>
+<tr><td style="color:darkblue;font-size:14px;font-style:normal;vertical-align:top;"><span style="color:red;">The Bad Bot Exterminator & Firewall Shield</span> Very effective anti hacking software that blocks hackers, stop brute force login attemtps and defends against ddos attacks to protect your WordPress website</td><td style="vertical-align:top;"><a target="_blank" href="https://www.dpabadbot.com"><img src="<?php echo $spmywp_dpabadbot_plugins_dir.'/bbbh30.png'; ?>" width="402" height="30"></a></td></tr>
+<tr><td style="color:blue;font-size:14px;font-style:normal;vertical-align:top;"><span style="color:red;">XFC a fast cache combined with an anti hacking firewall for php developers</span> - Not for WordPress, Joomla or other blogs but for other php websites. PHP Caching & Firewall Shield</td><td style="vertical-align:top;"><a target="_blank" href="http://www.dpaxfc.com"><img src="<?php echo $spmypc_dpaphpcache_plugins_dir.'/xfch30.png'; ?>" width="402" height="30"></a></td></tr>
 <tr><td style="color:blue;font-size:14px;font-style:normal;vertical-align:top;"><span style="color:red;">Web Hosting Services</span> - from budget hosting to high performance sites.</td><td style="vertical-align:top;"><a target="_blank" href="http://www.peterpublishing.com"><img src="<?php echo $spmywp_dpabadbot_plugins_dir.'/webhostingservicesh30.png'; ?>" width="405" height="30"></a></td></tr>
+<tr><td style="color:blue;font-size:14px;font-style:normal;vertical-align:top;"><span style="color:red;">dpaContactUs</span> - Contact Form that makes life difficult for spammers. Multiple websites can share one email address.</td><td style="vertical-align:top;"><a target="_blank" href="http://www.dpacu.com"><img src="<?php echo $spmywp_dpabadbot_plugins_dir.'/cufh30.png'; ?>" width="402" height="30"></a></td></tr>
 </table>
 <?php
 
