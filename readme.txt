@@ -4,7 +4,7 @@ Tags: bad bot, hack, security, brute force login, block hackers, ddos attack
 Requires at least: 3.9.1
 Tested up to: 4.2.2
 License URI: https://www.dpabadbot.com/wordpress-plugins/dpabadbotwp-helper-for-dpabadbot.php
-Stable tag: 1.15
+Stable tag: 1.16  [20150706]
 
 
 This plugin, dpaBadBotWP, automatically tells dpaBadBot, the firewall software, your current IP address and you will not be blocked from working on your WordPress site.
@@ -79,6 +79,9 @@ changed permission of .../wp-content/plugins/dpabadbotwpdata/ sub-directory to 0
 == 1.15 ==
 added display of memory in MB too.
 
+== 1.16 ==
+corrected the link to two other websites.
+
 == Upgrade Notice ==
 == 1.01 ==
 Previous version forgot to check ip address when logged into WordPress control panel. This version corrects that. The moment you are logged in, your current IP address is sent to dpaBadBot.
@@ -113,3 +116,6 @@ changed permission of .../wp-content/plugins/dpabadbotwpdata/ sub-directory to 0
 
 == 1.15 ==
 added display of memory in MB too.
+
+== 1.16 ==
+corrected the link to two other websites.
